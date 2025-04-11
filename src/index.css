@@ -1,0 +1,146 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased min-h-screen overflow-x-hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-[0_8px_16px_rgba(0,0,0,0.2)];
+  }
+  
+  .cyber-gradient {
+    @apply bg-gradient-to-br from-cyber to-cyber-muted;
+  }
+  
+  .magic-gradient {
+    @apply bg-gradient-to-br from-magic to-magic-muted;
+  }
+  
+  .void-gradient {
+    @apply bg-gradient-to-br from-void to-void-muted;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 5px currentColor;
+  }
+  
+  .animate-portal-active {
+    animation: portal-open 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .perspective {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .dimension-bg {
+    @apply absolute inset-0 -z-10 overflow-hidden;
+  }
+  
+  .cyber-bg {
+    background: linear-gradient(125deg, #0f172a 0%, #1e40af 100%);
+    background-size: 400% 400%;
+    animation: cyber-bg-animation 15s ease infinite;
+  }
+  
+  .magic-bg {
+    background: linear-gradient(125deg, #4c1d95 0%, #8b5cf6 100%);
+    background-size: 400% 400%;
+    animation: magic-bg-animation 15s ease infinite;
+  }
+  
+  .void-bg {
+    background: linear-gradient(125deg, #020617 0%, #1e293b 100%);
+    background-size: 400% 400%;
+    animation: void-bg-animation 15s ease infinite;
+  }
+}
+
+@keyframes cyber-bg-animation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes magic-bg-animation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes void-bg-animation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
